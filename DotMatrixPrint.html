@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dot Matrix Printer</title>
+<!--
+
+****  ***** *****       *   *  ***  ***** ****    *   *   *       ****  ****    *   *   * ***** ***** ****  
+ *  * *   *   *         ** ** *   *   *    *  *   *   *   *        *  *  *  *   *   **  *   *   *      *  * 
+ *  * *   *   *         ***** *   *   *    *  *   *    ***         *  *  *  *   *   *** *   *   *      *  * 
+ *  * *   *   *         * * * *****   *    ***    *     *          ***   ***    *   * * *   *   ****   ***  
+ *  * *   *   *         *   * *   *   *    **     *    ***         *     **     *   * ***   *   *      **   
+ *  * *   *   *         *   * *   *   *    * *    *   *   *        *     * *    *   *  **   *   *      * *  
+****  *****   *         *   * *   *   *    *  *   *   *   *        *     *  *   *   *   *   *   *****  *  * 
+
+-->
+ <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+<style>
+
+body {
+     color:#000000;
+     font-family: "Roboto", Arial, sans-serif;
+     font-weight: 300;
+     font-size:10pt;
+     margin:20px;
+}
+
+#Explination{
+	width:90%;
+}
+
+#Form{
+	position:relative;
+	float:left;
+	width:90%;
+	border-style: medium;
+	border-color: #000000;
+	background-color: #dddddd;
+	height:100px;
+	margin:20px;
+	padding:10px;
+}
+
+#output{
+	position:relative;
+	float:bottom;
+	width:90%;
+	color:#ffffff;
+	overflow-x:scroll;
+	background-color: #000000;
+	height:150px;
+	margin:20px;
+	padding:10px;
+	display:block;
+	font-family: monospace;
+	line-height: 8px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var ABinary=[[0,1,1,1,1,1,1,0,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,1,0,0,1,0],[0,1,1,1,1,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var BBinary=[[0,1,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,0,1,1,0,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var CBinary=[[0,0,1,1,1,1,1,0,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var DBinary=[[0,1,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,0,1,1,1,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var EBinary=[[0,1,1,1,1,1,1,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var FBinary=[[0,1,1,1,1,1,1,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var GBinary=[[0,0,1,1,1,1,1,0,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,1,1,1,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var HBinary=[[0,1,1,1,1,1,1,1,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var IBinary=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var JBinary=[[0,1,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var KBinary=[[0,1,1,1,1,1,1,1,0],[0,0,0,0,1,0,0,0,0],[0,0,0,1,1,1,0,0,0],[0,1,1,0,0,0,1,1,0],[0,1,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var LBinary=[[0,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var MBinary=[[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,1,1,0,0],[0,0,0,0,1,1,0,0,0],[0,0,0,0,0,1,1,0,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var NBinary=[[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,1,1,0,0],[0,0,0,1,1,1,0,0,0],[0,0,1,1,0,0,0,0,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var OBinary=[[0,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var PBinary=[[0,0,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,1,0,0,1,0],[0,0,0,0,0,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var QBinary=[[0,0,1,1,1,1,1,0,0],[0,1,0,0,0,0,0,1,0],[0,1,0,1,0,0,0,1,0],[0,0,1,0,0,0,0,1,0],[0,1,0,1,1,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var RBinary=[[0,0,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,0,0,1,1,0,0,1,0],[0,0,1,0,1,0,0,1,0],[0,1,0,0,0,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var SBinary=[[0,1,0,0,0,1,1,0,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,0,1,1,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var TBinary=[[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var UBinary=[[0,0,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var VBinary=[[0,1,1,1,1,1,1,1,0],[0,1,1,0,0,0,0,0,0],[0,0,1,1,1,0,0,0,0],[0,0,0,0,1,1,1,0,0],[0,0,0,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var WBinary=[[0,0,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0],[0,0,1,1,1,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var XBinary=[[0,1,1,0,0,0,1,1,0],[0,0,0,1,0,1,0,0,0],[0,0,0,1,1,1,0,0,0],[0,0,0,1,0,1,0,0,0],[0,1,1,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var YBinary=[[0,0,0,0,0,0,1,1,0],[0,0,0,0,1,1,1,0,0],[0,1,1,1,1,0,0,0,0],[0,0,0,0,1,1,1,0,0],[0,0,0,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var ZBinary=[[0,1,0,0,0,0,0,1,0],[0,1,1,1,0,0,0,1,0],[0,1,0,1,1,1,0,1,0],[0,1,0,0,0,1,1,1,0],[0,1,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var ZeroBinary=[[0,1,0,0,0,0,0,0,0],[0,0,1,1,1,1,1,0,0],[0,0,1,0,0,0,1,0,0],[0,0,1,1,1,1,1,0,0],[0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var OneBinary=[[0,0,0,0,0,1,0,0,0],[0,1,0,0,0,0,1,0,0],[0,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var TwoBinary=[[0,1,1,0,0,0,1,0,0],[0,1,0,1,0,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,0,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var ThreeBinary=[[0,1,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,1,0,1,0],[0,0,1,1,1,0,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var FourBinary=[[0,0,0,0,1,1,1,1,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0,0],[0,1,1,1,1,1,1,0,0],[0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var FiveBinary=[[0,0,1,0,0,0,0,0,0],[0,1,0,0,0,1,1,1,0],[0,1,0,0,0,1,1,1,0],[0,0,1,0,0,1,0,1,0],[0,0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0,0]];
+var SixBinary=[[0,0,1,1,1,1,0,0,0],[0,1,0,0,1,0,1,0,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,0,1,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var SevenBinary=[[0,0,0,0,0,0,0,1,0],[0,1,1,1,0,0,0,1,0],[0,0,0,1,1,0,0,1,0],[0,0,0,0,1,1,0,1,0],[0,0,0,0,0,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var EightBinary=[[0,1,1,1,1,1,1,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0]];
+var NineBinary=[[0,0,0,0,0,1,1,0,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,1,0,0,1,0,0,1,0],[0,0,1,1,1,1,1,0,0],[0,0,0,0,0,0,0,0,0]];
+var SpaceBinary=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]]; 
+
+var CharSet={A:ABinary, B:BBinary, C:CBinary, D:DBinary, E:EBinary, F:FBinary, G:GBinary, H:HBinary, I:IBinary, J:JBinary, K:KBinary, L:LBinary, M:MBinary, N:NBinary, O:OBinary, P:PBinary, Q:QBinary, R:RBinary, S:SBinary, T:TBinary, U:UBinary, V:VBinary, W:WBinary, X:XBinary, Y:YBinary, Z:ZBinary, 0:ZeroBinary, 1:OneBinary, 2:TwoBinary, 3:ThreeBinary, 4:FourBinary, 5:FiveBinary, 6:SixBinary, 7:SevenBinary, 8:EightBinary, 9:NineBinary, " ":SpaceBinary};//CharSet is an object contaning a named value for each caracter. With in each character is a 2D array of 5+1 columns each 7 high. This creates 5X7 characters with an automatic space between after.
+
+
+</script>
+
+</head>
+
+		<body>
+
+<div id="Explination">
+		This is an example of printing out text like a dow matrix printer. However, unlike LED matricies where the display can rely on persistance of vision this example requires the entire character to be stored as a set of 5 columns stacked 7 wide, plus one column for spacing. This creates a 5x7 dot matrix "font". This has been achieved using a 3 dimensional array. Each character has an array consisting of 5 columns. Each column is in turn a binary array of weather that "pixel" is on of off. Next the input string is parsed and compaired to each character in the "font" array. Then each row is read, while jumping between each character so line breaks only happen at the end of the row. This has the advantage that if you want to copy and paste the phrase you can do so directly without any ordering issues. This can be seen in the comment of the source code for this page. <br />
+
+		</div>
+
+<div id="Form">
+	<form id="ScrollMessage">
+	  Value to Check: <input type="text" name="Message" value="hello world"><br />
+	  Dot Style:<select name="DotStyle">
+    <option value="*" selected>*</option>
+    <option value="#">#</option>
+    <option value="+">+</option>
+    <option value="&#9830;">&#9830;</option>
+  </select><br />
+
+ Color:<select name="ColorStyle">
+    <option value="white" selected>White</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="lime">Green</option>
+    <option value="yellow">Yellow</option>
+  </select>
+
+	</form>
+
+	<button onclick="LoadMessage();">Run Message</button> <br />
+
+</div>
+
+<div id="output">&nbsp;</div>
+
+
+<script type="text/javascript">
+
+function LoadMessage() {
+
+
+    var x = document.getElementById("ScrollMessage");
+    var MessageString = x.elements[0].value.toUpperCase();
+    var DotType= x.elements[1].value;
+    var DotColor=x.elements[2].value;
+    var AllowedCharacters=true;
+    var ReasonableLength=true;
+    var OutputString="";
+    
+    var MessageArray=[];
+
+    if(MessageString.length>50){
+    	ReasonableLength=false;
+    	alert("That's a lot of characters. Please limit to 50 or less.");
+    }
+
+    for(var i=0; i<MessageString.length; i++){
+
+    		AllowedCharacters=checkValid(MessageString.charAt(i));//check if this particular character matches any of the allowable characters.
+	    	if(AllowedCharacters){//if it matched any of the characters push to an array
+	    	MessageArray.push(MessageString.charAt(i));
+	    	}else{
+	    	alert("Please only use A-Z and 0-9");//alert user and exit the loop
+	    	break;
+	  		};
+    };
+
+    if(AllowedCharacters && ReasonableLength){
+    for (var i=8; i>-1; i--){//repeat this for each Row of the entire string.
+
+    		for (var j=0; j<MessageArray.length; j++){//do each letter's row
+    			var thisCharacter=MessageArray[j];
+    			var thisRow=i;
+    				for (var k=0; k<6; k++){ //each letters column by column this allows for each row to be a continious string
+    					var thisColumn=k;
+
+    					if(CharSet[thisCharacter][thisColumn][thisRow]==0){
+    					OutputString+="&nbsp;";//if binary is 0 insert a non-collapsing space
+    					}else{
+    					OutputString+=DotType;//if not zero insert a dot from the type selected
+    					}
+    			}
+
+    		}
+    		OutputString+="<br/>";//at the end of the row add in a return
+
+    }
+
+    document.getElementById("output").innerHTML = OutputString;
+    document.getElementById("output").style.color = DotColor;
+}
+
+
+};
+
+function checkValid(Character){
+	var validCharacters=["A", "B","C","D","E","F","G","H","I","J","K","L","M", "N", "O", "P", "Q", "R","S","T","U","V","W","X","Y","Z","0","1", "2", "3", "4","5","6","7","8","9", " "];
+	if (validCharacters.indexOf(Character) > -1) {
+    return true;
+	} else {
+    return false;
+	}
+}
+
+</script>
+
+		</body>
+
+
+</html>
