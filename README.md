@@ -1,11 +1,11 @@
                                                                                                             
-****  ***** *****       *   *  ***  ***** ****    *   *   *       ****  ****    *   *   * ***** ***** ****  
- *  * *   *   *         ** ** *   *   *    *  *   *   *   *        *  *  *  *   *   **  *   *   *      *  * 
- *  * *   *   *         ***** *   *   *    *  *   *    ***         *  *  *  *   *   *** *   *   *      *  * 
- *  * *   *   *         * * * *****   *    ***    *     *          ***   ***    *   * * *   *   ****   ***  
- *  * *   *   *         *   * *   *   *    **     *    ***         *     **     *   * ***   *   *      **   
- *  * *   *   *         *   * *   *   *    * *    *   *   *        *     * *    *   *  **   *   *      * *  
-****  *****   *         *   * *   *   *    *  *   *   *   *        *     *  *   *   *   *   *   *****  *  * 
+++++  +++++ +++++       +   +  +++  +++++ ++++    +   +   +       ++++  ++++    +   +   + +++++ +++++ ++++  
+ +  + +   +   +         ++ ++ +   +   +    +  +   +   +   +        +  +  +  +   +   ++  +   +   +      +  + 
+ +  + +   +   +         +++++ +   +   +    +  +   +    +++         +  +  +  +   +   +++ +   +   +      +  + 
+ +  + +   +   +         + + + +++++   +    +++    +     +          +++   +++    +   + + +   +   ++++   +++  
+ +  + +   +   +         +   + +   +   +    ++     +    +++         +     ++     +   + +++   +   +      ++   
+ +  + +   +   +         +   + +   +   +    + +    +   +   +        +     + +    +   +  ++   +   +      + +  
+++++  +++++   +         +   + +   +   +    +  +   +   +   +        +     +  +   +   +   +   +   +++++  +  + 
 
 This is simple javascript demonstration that let's you take an alphanumeric phrase and print it out in a matrix. You can view a functioning version of this code at http://technecreative.com under the Code section or a stand alone version at http://technecreative.com/DotMatrixPrint.html.
 
